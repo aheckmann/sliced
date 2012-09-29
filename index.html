@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sliced by aheckmann</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Sliced</h1>
+        <p class="header">A faster Node.js alternative to [].slice.call(arguments)</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/aheckmann/sliced/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/aheckmann/sliced/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/aheckmann/sliced">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/aheckmann">aheckmann</a></p>
+
+
+      </header>
+      <section>
+        <h2>Usage</h2>
+
+<p><code>sliced</code> accepts the same arguments as <code>Array#slice</code> so you can easily swap it out.</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">zing</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">slow</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nx">slice</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">slow</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nx">slice</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+  <span class="c1">// etc</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Example output from <a href="https://github.com/bestiejs/benchmark.js">benchmark.js</a></p>
+
+<pre><code>Array.prototype.slice.call x 1,320,205 ops/sec ±2.35% (92 runs sampled)
+[].slice.call x 1,314,605 ops/sec ±1.60% (95 runs sampled)
+cached slice.call x 10,468,380 ops/sec ±1.45% (95 runs sampled)
+sliced x 16,608,237 ops/sec ±1.40% (92 runs sampled)
+fastest is sliced
+
+Array.prototype.slice.call(arguments, 1) x 1,383,584 ops/sec ±1.73% (97 runs sampled)
+[].slice.call(arguments, 1) x 1,494,735 ops/sec ±1.33% (95 runs sampled)
+cached slice.call(arguments, 1) x 10,085,270 ops/sec ±1.51% (97 runs sampled)
+sliced(arguments, 1) x 16,620,480 ops/sec ±1.29% (95 runs sampled)
+fastest is sliced(arguments, 1)
+
+Array.prototype.slice.call(arguments, -1) x 1,303,262 ops/sec ±1.62% (94 runs sampled)
+[].slice.call(arguments, -1) x 1,325,615 ops/sec ±1.36% (97 runs sampled)
+cached slice.call(arguments, -1) x 9,673,603 ops/sec ±1.70% (96 runs sampled)
+sliced(arguments, -1) x 16,384,575 ops/sec ±1.06% (91 runs sampled)
+fastest is sliced(arguments, -1)
+
+Array.prototype.slice.call(arguments, -2, -10) x 1,404,390 ops/sec ±1.61% (95 runs sampled)
+[].slice.call(arguments, -2, -10) x 1,514,367 ops/sec ±1.21% (96 runs sampled)
+cached slice.call(arguments, -2, -10) x 9,836,017 ops/sec ±1.21% (95 runs sampled)
+sliced(arguments, -2, -10) x 18,544,882 ops/sec ±1.30% (91 runs sampled)
+fastest is sliced(arguments, -2, -10)
+
+Array.prototype.slice.call(arguments, -2, -1) x 1,458,604 ops/sec ±1.41% (97 runs sampled)
+[].slice.call(arguments, -2, -1) x 1,536,547 ops/sec ±1.63% (99 runs sampled)
+cached slice.call(arguments, -2, -1) x 10,060,633 ops/sec ±1.37% (96 runs sampled)
+sliced(arguments, -2, -1) x 18,608,712 ops/sec ±1.08% (93 runs sampled)
+fastest is sliced(arguments, -2, -1)
+</code></pre>
+
+<p><em>Benchmark  <a href="https://github.com/aheckmann/sliced/blob/master/bench.js">source</a>.</em></p>
+
+<h2>install</h2>
+
+<pre><code>npm install sliced
+</code></pre>
+
+<p><a href="https://github.com/aheckmann/sliced/blob/master/LICENSE">LICENSE</a></p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
