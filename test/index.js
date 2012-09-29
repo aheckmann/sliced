@@ -40,6 +40,11 @@ describe('sliced', function(){
       assert.equal(2, r.length);
       assert.equal(o[2], r[0]);
       assert.equal(o[3], r[1]);
+
+      var r = sliced(o, -12);
+      assert.equal(4, r.length);
+      assert.equal(o[0], r[0]);
+      assert.equal(o[1], r[1]);
     })
   })
   describe('with negative start and positive end', function(){
