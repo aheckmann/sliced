@@ -1,4 +1,11 @@
 
+0.0.4 / 2013-01-07
+==================
+
+  * added component.json #1 [jkroso](https://github.com/jkroso)
+  * reversed array loop #1 [jkroso](https://github.com/jkroso)
+  * remove fn params
+
 0.0.3 / 2012-09-29
 ==================
 
