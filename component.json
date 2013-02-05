@@ -8,6 +8,7 @@
     "slice",
     "array"
   ],
+  "scripts": ["lib/sliced.js", "index.js"],
   "author": "Aaron Heckmann <aaron.heckmann+github@gmail.com>",
   "license": "MIT"
 }
