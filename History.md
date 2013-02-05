@@ -1,4 +1,11 @@
 
+0.0.5 / 2013-02-05
+==================
+
+  * optimization: remove use of arguments [jkroso](https://github.com/jkroso)
+  * add scripts to component.json [jkroso](https://github.com/jkroso)
+  * tests; remove time for travis
+
 0.0.4 / 2013-01-07
 ==================
 

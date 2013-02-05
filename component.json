@@ -1,6 +1,6 @@
 {
   "name": "sliced",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "A faster Node.js alternative to Array.prototype.slice.call(arguments)",
   "repo" : "aheckmann/sliced",
   "keywords": [
