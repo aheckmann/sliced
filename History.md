@@ -1,4 +1,10 @@
 
+1.0.0 / 2015-07-12
+==================
+
+ * Remove unnecessary files from npm package - #6 via joaquimserafim
+ * updated readme stats
+
 0.0.5 / 2013-02-05
 ==================
 
