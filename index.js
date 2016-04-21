@@ -3,22 +3,25 @@
  * An Array.prototype.slice.call(arguments) alternative
  *
  * @param {Object} args something with a length
- * @param {Number} slice
- * @param {Number} sliceEnd
+ * @param {Number} [slice]
+ * @param {Number} [sliceEnd]
  * @api public
  */
 
 module.exports = function (args, slice, sliceEnd) {
   var ret = [];
+  var start = 0;
   var len = args.length;
 
   if (0 === len) return ret;
 
-  var start = slice < 0
-    ? Math.max(0, slice + len)
-    : slice || 0;
+  if (typeof slice != 'undefined') {
+    start = slice < 0
+      ? Math.max(0, slice + len)
+      : slice;
+  }
 
-  if (sliceEnd !== undefined) {
+  if (typeof sliceEnd != 'undefined') {
     len = sliceEnd < 0
       ? sliceEnd + len
       : sliceEnd
@@ -29,5 +32,4 @@ module.exports = function (args, slice, sliceEnd) {
   }
 
   return ret;
-}
-
+};
