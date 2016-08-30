@@ -44,6 +44,8 @@ _Benchmark  [source](https://github.com/aheckmann/sliced/blob/master/bench.js)._
 `sliced` accepts the same arguments as `Array#slice` so you can easily swap it out.
 
 ```js
+const slice = require('sliced');
+
 function zing () {
   var slow = [].slice.call(arguments, 1, 8);
   var args = slice(arguments, 1, 8);
