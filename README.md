@@ -1,4 +1,4 @@
-#sliced
+# sliced
 ==========
 
 A faster alternative to `[].slice.call(arguments)`.
@@ -39,7 +39,7 @@ Example output from [benchmark.js](https://github.com/bestiejs/benchmark.js)
 
 _Benchmark  [source](https://github.com/aheckmann/sliced/blob/master/bench.js)._
 
-##Usage
+## Usage
 
 `sliced` accepts the same arguments as `Array#slice` so you can easily swap it out.
 
